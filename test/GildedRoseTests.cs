@@ -1,11 +1,11 @@
 using GildedRose;
-using NUnit.Framework;
+using Xunit;
 
 namespace GildedRoseTests
 {
     public class GildedRoseTest
     {
-        [Test]
+        [Fact]
         public void UpdateQuality_ItemFooAdded_FirstItemIsItemFoo()
         {
             IList<Item> Items = new List<Item> { new Item("foo", 0, 0) };
@@ -13,7 +13,7 @@ namespace GildedRoseTests
 
             app.UpdateQuality();
 
-            Assert.AreEqual("foo", Items[0].Name);
+            Assert.Equal("foo", Items[0].Name);
         }
     }
 }

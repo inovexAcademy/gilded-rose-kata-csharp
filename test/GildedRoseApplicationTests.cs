@@ -2,7 +2,7 @@ namespace GildedRoseTests
 {
 
     using GildedRose;
-    using NUnit.Framework;
+    using Xunit;
 
     public class GildedRoseApplicationTests
     {
@@ -12,7 +12,7 @@ namespace GildedRoseTests
         private FileStream fileStream;
         private StreamWriter streamWriter;
 
-        [Test]
+        [Fact]
         public void Run_ComparedToGoldenMaster_ShouldReturnSameValues()
         {
             RedirectConsoleOutToFile();
@@ -23,7 +23,7 @@ namespace GildedRoseTests
             CleanupRedirection();
             string actualOutput = File.ReadAllText(testFileName);
             string goldenMaster = File.ReadAllText(goldenMasterFileName);
-            Assert.AreEqual(goldenMaster, actualOutput);
+            Assert.Equal(goldenMaster, actualOutput);
         }
 
         private void RedirectConsoleOutToFile()
